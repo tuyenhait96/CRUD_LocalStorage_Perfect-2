@@ -74,14 +74,16 @@
     arrUser = [];
     document.getElementById("txtId").value = 1
   } else {
-    document.getElementById("txtId").value = arrUser.length + 1
+    setIdIncrease()
   }
 
   // function setRandomId() {
   //   document.getElementById("txtId").value = process.guidGenerator()
   // }
   // setRandomId()
-
+  function setIdIncrease() {
+    document.getElementById("txtId").value = arrUser.length + 1
+  }
   btnCreate.onclick = function () {
     let txtId = document.getElementById("txtId").value;
     let txtFullName = document.getElementById("txtFullName").value;
@@ -131,16 +133,14 @@
     txtId = ''
     txtFullName = ''
     txtDate = ''
-
-
-    const btnBack = document.getElementById("back")
-    const slas = URL.pathName.split('/')
-    slas.pop()
-    const newA = slas.join('/')
-    btnBack.setAttribute("href", `${newA}/`)
     //setRandomId()
+    setIdIncrease()
   }
-
+  const btnBack = document.getElementById("back")
+  const slas = URL.pathName.split('/')
+  slas.pop()
+  const newA = slas.join('/')
+  btnBack.setAttribute("href", `${newA}/`)
 </script>
 </body>
 

@@ -79,8 +79,8 @@
         console.log(currentUser)
         document.getElementById('txtId').value = `${currentUser.id}`;
         document.getElementById('txtFullName').value = `${currentUser.name}`;
-        document.getElementById('txtDate').value = `${moment(currentUser.birth).format('YYYY-MM-DD')}`
-        console.log('a', `${currentUser.birth}`);
+        document.getElementById('txtDate').value = `${moment(currentUser.birth).format('YYYY-DD-MM')}`
+        console.log('a', `${moment(currentUser.birth).format('YYYY-MM-DD')}`);
 
         document.getElementById('txtHome').value = `${currentUser.home}`
         document.getElementById('txtEmail').value = `${currentUser.email}`
