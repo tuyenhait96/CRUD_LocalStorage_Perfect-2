@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <section id="main">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default text-center">
+                        <div class="panel-heading main-color-bg">
+                            <h3 class="panel-title">
+                                List of users
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <h1 id="title">
+                                No users in list
+                            </h1>
+                            <a href="create.html" class="btn btn-primary mt-3 mb-5">
+                                Add user
+                            </a>
+                            <table class="table" id="table">
+                                <thead>
+                                    <tr class="text-primary">
+                                        <th class="text-center">
+                                            #
+                                        </th>
+                                        <th class="text-center">
+                                            Full name
+                                        </th>
+                                        <th class="text-center">
+                                            Birthday
+                                        </th>
+                                        <th class="text-center"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="list"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="./js/process/process.js"></script>
+<script src="js/render/render.js"></script>
+<script>
+
+    document.getElementById('title').style.display = process.getData() ? 'none' : 'block';
+    document.getElementById('table').style.display = process.getData() ? 'block' : 'none';
+
+    if (process.getData()) {
+        const data = process.getData();
+        data.forEach(user => {
+            let _user = render.showListOfUsers(user, document.getElementById('list'));
+            _user.onclick = (event) => {
+                const selectedUserId = event.target.closest('tr').id;
+                window.location.href = 'http://localhost:5000/Downloads/assignment-master/crud-javascript-localStorage/detail?id=' + selectedUserId;
+
+                // const userID = event.target.closet('tr a').id;
+                // window.location.href = 'http://localhost:5000/Downloads/assignment-master/crud-javascript-localStorage/edit?id=' + userID;
+
+            }
+        })
+    }
+</script>
+
+</html>
