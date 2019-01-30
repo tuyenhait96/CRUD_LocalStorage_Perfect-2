@@ -50,8 +50,7 @@
                             </div>
                             <div class="text-center">
                                 <input type="submit" class="btn btn-info" value="Edit" id="btnEdit">
-                                <a href="http://localhost:5000/Downloads/assignment-master/crud-javascript-localStorage/"
-                                    class="btn btn-dark">Back</a>
+                                <a href="" class="btn btn-dark" id="back">Back</a>
                             </div>
                             </form>
                         </div>
@@ -67,13 +66,12 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/process/process.js"></script>
+    <script src="js/url.js"></script>
     <script>
         const getId = new URLSearchParams(window.location.search).get('id');
-
         const btnEdit = document.getElementById("btnEdit");
         // const arrUser = process.getData();
-       
-
+    
         const currentUser = process.getDetail(getId);
         console.log(currentUser)
         document.getElementById('txtId').value = `${currentUser.id}`;
@@ -113,6 +111,12 @@
             localStorage.setItem('arrUser', JSON.stringify(newUserArray))
             alert('Update success')
         })
+
+        const btnBack = document.getElementById("back")
+        const slashes = URL.pathName.split('/')
+        slashes.pop()
+        const newPath = slashes.join('/')
+        btnBack.setAttribute("href", `${newPath}/`)
     </script>
 </body>
 

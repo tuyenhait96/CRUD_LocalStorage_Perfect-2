@@ -50,7 +50,7 @@
                             </div>
                             <div class="text-center">
                                 <input type="submit" class="btn btn-warning" value="Edit" id="btnEdit">
-                                <a href="http://localhost:5000/Desktop/crud-javascript-localStorage/" class="btn btn-dark">Back</a>
+                                <a href="" class="btn btn-dark" id="back">Back</a>
                             </div>
                             </form>
                         </div>
@@ -66,6 +66,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/process/process.js"></script>
+    <script src="js/url.js"></script>
     <script src="js/moment.min.js"></script>
     <script>
         const getId = new URLSearchParams(window.location.search).get('id');
@@ -146,6 +147,12 @@
             localStorage.setItem('arrUser', JSON.stringify(newUserArray))
             alert('Update success')
         })
+
+        const btnBack = document.getElementById("back")
+        const slas = URL.pathName.split('/')
+        slas.pop()
+        const newA = slas.join('/')
+        btnBack.setAttribute("href", `${newA}/`)
     </script>
 </body>
 

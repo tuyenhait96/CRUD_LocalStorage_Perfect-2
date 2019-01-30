@@ -55,6 +55,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="./js/process/process.js"></script>
 <script src="js/render/render.js"></script>
+<script src="js/url.js"></script>
 <script>
 
     document.getElementById('title').style.display = process.getData() ? 'none' : 'block';
@@ -66,7 +67,11 @@
             let _user = render.showListOfUsers(user, document.getElementById('list'));
             _user.onclick = (event) => {
                 const selectedUserId = event.target.closest('tr').id;
-                window.location.href = 'http://localhost:5000/Downloads/assignment-master/crud-javascript-localStorage/detail?id=' + selectedUserId;
+                const slashes = URL.pathName.split('/')
+                slashes.pop()
+                slashes.push('detail')
+                const newPath = slashes.join('/')
+                window.location.href = `${newPath}?id=` + selectedUserId;
 
                 // const userID = event.target.closet('tr a').id;
                 // window.location.href = 'http://localhost:5000/Downloads/assignment-master/crud-javascript-localStorage/edit?id=' + userID;

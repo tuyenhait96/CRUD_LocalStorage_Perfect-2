@@ -40,7 +40,7 @@
             <a class="btn btn-warning ml-5" id="btnEdit" href= "">
                 Edit
             </a>
-            <a class="btn btn-dark" href="http://localhost:5000/Desktop/crud-javascript-localStorage/" id="back">
+            <a class="btn btn-dark" href="" id="back">
                 Back
             </a>
         </div>
@@ -79,6 +79,13 @@
     const newPath = slashes.join('/');
 
     btnEdit.setAttribute('href', `${newPath}?id=${id}`);
+
+    const btnBack = document.getElementById("back");
+
+    const slas = URL.pathName.split('/')
+    slas.pop()
+    const newA = slas.join('/')
+    btnBack.setAttribute("href", `${newA}/`)
 </script>
 
 </html>
