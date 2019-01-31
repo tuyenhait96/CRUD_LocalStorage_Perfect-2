@@ -18,7 +18,6 @@ class render {
                         <button class="btn btn-danger" onClick='deleteUser(this)' idUser="${item['id']}">Delete</button></td>
                        </tr>`
         })
-        // <button onClick='editUser(this)' idUser="${item['id']}">sua</button>
         parentNode.innerHTML = ''
         parentNode.innerHTML = content
 

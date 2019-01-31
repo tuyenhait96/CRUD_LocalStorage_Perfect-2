@@ -10,7 +10,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 </head>
-
+<body>
 <header id="header">
   <div class="container">
     <div class="row">
@@ -70,13 +70,12 @@
   const btnCreate = document.getElementById("btnCreate");
   let arrUser = process.getData();
 
-  // arrUser = arrUser || [] <=>
+  arrUser = arrUser || [] 
   // if (arrUser === null || arrUser === undefined) {
   //   arrUser = [];
   // } else {
   //   arrUser = arrUser;
   // }
-
 
  if (arrUser.length === 0) {
     document.getElementById("txtId").value = 1;

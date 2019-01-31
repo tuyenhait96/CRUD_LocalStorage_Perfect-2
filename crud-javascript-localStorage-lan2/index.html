@@ -55,7 +55,6 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="./js/process/process.js"></script>
 <script src="js/render/render.js"></script>
-
 <script src="js/url.js"></script>
 
 <script>
@@ -67,14 +66,7 @@
         if (process.getData()) {
             const data = process.getData();
             render.showListOfUsers(data, list);
-            // _user.onclick = (event) => {
-            //     const selectedUserId = event.target.closest('tr').id;
-            //     //window.location.href = `${URL.pathName}detail?id=` + selectedUserId;
-            // }
         }
-
-
-        //let buttonDeleteUsers = document.querySelectorAll(".delete-user");
     })
     
     function deleteUser(e) {
