@@ -70,20 +70,36 @@
   const btnCreate = document.getElementById("btnCreate");
   let arrUser = process.getData();
 
-  if (arrUser == null) {
-    arrUser = [];
-    document.getElementById("txtId").value = 1
+  // arrUser = arrUser || [] <=>
+  // if (arrUser === null || arrUser === undefined) {
+  //   arrUser = [];
+  // } else {
+  //   arrUser = arrUser;
+  // }
+
+
+ if (arrUser.length === 0) {
+    document.getElementById("txtId").value = 1;
   } else {
     setIdIncrease()
   }
 
+  function setIdIncrease() {
+    let newB = []
+    arrUser.forEach(item => {
+      console.log('s', item.id)
+      newB.push(item.id)
+      console.log(newB)
+    })
+    console.log('b', newB)
+    document.getElementById("txtId").value =  Math.max.apply(Math,newB) + 1
+  }
+  
   // function setRandomId() {
   //   document.getElementById("txtId").value = process.guidGenerator()
   // }
-  // setRandomId()
-  function setIdIncrease() {
-    document.getElementById("txtId").value = arrUser.length + 1
-  }
+  // setRandomId() 
+
   btnCreate.onclick = function () {
     let txtId = document.getElementById("txtId").value;
     let txtFullName = document.getElementById("txtFullName").value;
